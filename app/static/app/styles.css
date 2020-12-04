@@ -1,38 +1,64 @@
+body {
+	margin: 5px;
+}
+
 h1 {
   color: navy;
   font-family: verdana;
   font-size: 200%;
 }
 
+.container { /* applies to all containers in the app */
+	padding: 5px;
+	position: relative;
+}
+
+.input-container { /* applies only to containers that contain input */
+	height: 5%;
+}
+
 .chat-container {
-	border: 1px solid lightgrey;
-	display: block;
+	height: 90%;
+	/* flexbox reference: https://stackoverflow.com/questions/6401869/stacking-divs-from-bottom-to-top*/
+	display: flex;
+	justify-content: flex-end;
+	flex-direction: column;
 }
 
 .message-container {
-	border: 1px solid lightgrey;
-	display: block;
+	height: 10%;
+	/* flex-grow shorthand: https://stackoverflow.com/questions/37745051/make-div-fill-remaining-horizontal-space-in-flexbox*/
+	display: flex;
+	flex: 1;
+	border: 1px solid red;
+	background-color: rgba(0, 0, 100, 0.2);
 }
 
 .preset-container {
-	display: block;
+	background-color: rgba(100, 100, 100, 0.2);
+	/* more flex magic: https://css-tricks.com/snippets/css/a-guide-to-flexbox/ */
+	display: flex;
+	flex-flow: row wrap;
 }
 
 .chat-box {
-	display: block;
+	display: inline-flex;
+	flex-direction: row;
 }
 
-#edit-text {
-	display: inline-block;
+.edit-text {
+	flex: 1;
+	margin-right: 5px;
 	resize: none;
+	font-size: 135%;
 }
 
-#send-message {
-	display: inline-block;
+i {
+	margin: 1px;
 	font-size: 1.75em;
 	opacity: 0.25;
 }
 
-#send-message:hover {
+i:hover {
 	opacity: 1;
 }

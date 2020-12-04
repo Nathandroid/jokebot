@@ -5,5 +5,5 @@ class joke(models.Model):
     delivery = models.CharField(max_length=255)
 
     class Meta:
-        #name the table jokes
+        #set table name as jokes for clarity
         db_table = 'jokes'

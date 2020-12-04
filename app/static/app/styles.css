@@ -1,0 +1,38 @@
+h1 {
+  color: navy;
+  font-family: verdana;
+  font-size: 200%;
+}
+
+.chat-container {
+	border: 1px solid lightgrey;
+	display: block;
+}
+
+.message-container {
+	border: 1px solid lightgrey;
+	display: block;
+}
+
+.preset-container {
+	display: block;
+}
+
+.chat-box {
+	display: block;
+}
+
+#edit-text {
+	display: inline-block;
+	resize: none;
+}
+
+#send-message {
+	display: inline-block;
+	font-size: 1.75em;
+	opacity: 0.25;
+}
+
+#send-message:hover {
+	opacity: 1;
+}

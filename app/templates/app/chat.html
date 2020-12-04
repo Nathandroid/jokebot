@@ -1,0 +1,27 @@
+{% load static %}
+
+<!-- get css from static directory -->
+<link rel="stylesheet" type="text/css" href="{% static 'app/styles.css' %}">
+
+<!-- font awesome icon access -->
+<script src="https://kit.fontawesome.com/237b03f221.js" crossorigin="anonymous"></script>
+
+<head>
+	<h1>Jokebot App</h1>
+</head>
+
+<body>
+	<div class="chat-container">
+		<div class="message-container">
+
+		</div>
+		<div class="preset-container">
+
+		</div>
+		<div class="chat-box">
+			<textarea id="edit-text"></textarea>
+			<i id="send-message" class="fas fa-paper-plane"></i>
+		</div>
+	</div>
+</body>
+

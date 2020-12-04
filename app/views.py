@@ -1,4 +1,9 @@
-from django.http import HttpResponse
+from django.shortcuts import render
 
-def index(request):
-    return HttpResponse("This is the jokebot app index")
+from .models import joke
+
+def chat(request):
+
+	context = {}
+    #render given the chat template
+	return render(request, 'app/chat.html', context)

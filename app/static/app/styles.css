@@ -3,9 +3,13 @@ body {
 }
 
 h1 {
-  color: navy;
-  font-family: "Verdana";
-  font-size: 200%;
+	color: navy;
+	font-family: "Verdana";
+	font-size: 200%;
+}
+
+ul { /* get rid of margins for upcoming lists */
+	margin: 0px;
 }
 
 .container { /* applies to all containers in the app */
@@ -51,6 +55,7 @@ h1 {
 	padding: 5px;
 	margin-top: 5px;
 	max-width: 400px;
+	box-shadow: 1px 2px 2px rgba(0,0,0,0.2);
 }
 
 .bot-message { /* styling for bot-specific messages */
@@ -104,6 +109,30 @@ h1 {
 	flex-flow: row wrap;
 }
 
+.presets {
+	display: flex;
+	flex-flow: row wrap;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.preset {
+	/* box shadow code adapted from: https://tobiasahlin.com/blog/how-to-animate-box-shadow/
+	   and https://www.w3schools.com/cssref/css3_pr_box-shadow.asp */
+	box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+	transition: all 0.3s ease-in-out;
+	margin-right: 10px;
+	padding: 2.5px;
+	font-size: 140%;
+	border-radius: .4em;
+	border: 1px solid #2196F3;
+	color: #2196F3;
+}
+
+.preset:hover {
+	box-shadow: 0 5px 15px rgba(0,0,0,0.35);
+}
+
 .chat-box {
 	display: inline-flex;
 	flex-direction: row;
@@ -114,6 +143,10 @@ h1 {
 	margin-right: 5px;
 	resize: none;
 	font-size: 135%;
+}
+
+.edit-text:disabled {
+	box-shadow: 8px 8px 10px rgba(0,0,0,0.25) inset;
 }
 
 i {

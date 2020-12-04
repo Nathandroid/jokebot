@@ -4,7 +4,7 @@ body {
 
 h1 {
   color: navy;
-  font-family: verdana;
+  font-family: "Verdana";
   font-size: 200%;
 }
 
@@ -29,9 +29,72 @@ h1 {
 	height: 10%;
 	/* flex-grow shorthand: https://stackoverflow.com/questions/37745051/make-div-fill-remaining-horizontal-space-in-flexbox*/
 	display: flex;
+	flex-direction: column;
 	flex: 1;
+	justify-content: flex-end;
 	border: 1px solid red;
 	background-color: rgba(0, 0, 100, 0.2);
+}
+
+.messages { /* list of messages */
+	display: flex;
+	flex-direction: column;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+/* chat bubble reference: https://projects.verou.me/bubbly/ */
+.message {
+	position: relative;
+	border-radius: .4em;
+	font-size: 130%;
+	padding: 5px;
+	margin-top: 5px;
+	max-width: 400px;
+}
+
+.bot-message { /* styling for bot-specific messages */
+	font-family: "Lucida Console";
+	/* robot colour palette: https://www.color-hex.com/color-palette/4970 */
+	background-color: #D5D5D5;
+	color: #334D5C;
+}
+
+.bot-message:after { /* style for bot-specific chat bubble additions */
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 30%;
+	width: 0;
+	height: 0;
+	border: 12px solid transparent;
+	border-right-color: #D5D5D5;
+	border-left: 0;
+	border-top: 0;
+	margin-top: -6px;
+	margin-left: -12px;
+}
+
+.user-message { /* styling for user-specific messages */
+	font-family: "Helvetica";
+	align-self: flex-end;
+	background-color: #BBDEFB;
+	color: #0D47A1;
+}
+
+.user-message:after { /* style for user-specific chat bubble additions */
+	content: '';
+	position: absolute;
+	right: 0;
+	top: 70%;
+	width: 0;
+	height: 0;
+	border: 12px solid transparent;
+	border-left-color: #BBDEFB;
+	border-right: 0;
+	border-bottom: 0;
+	margin-top: -6px;
+	margin-right: -12px;
 }
 
 .preset-container {

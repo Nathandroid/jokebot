@@ -22,22 +22,23 @@ ul { /* get rid of margins for upcoming lists */
 }
 
 .chat-container {
-	height: 90%;
+	height: 625px; /* tentative fix */
 	/* flexbox reference: https://stackoverflow.com/questions/6401869/stacking-divs-from-bottom-to-top*/
+	flex-grow: 5;
 	display: flex;
 	justify-content: flex-end;
 	flex-direction: column;
 }
 
 .message-container {
-	height: 10%;
 	margin-bottom: 5px;
 	/* flex-grow shorthand: https://stackoverflow.com/questions/37745051/make-div-fill-remaining-horizontal-space-in-flexbox*/
 	display: flex;
 	flex-direction: column;
-	flex: 1;
 	justify-content: flex-end;
+	flex-grow: 10;
 	border: 1px solid black;
+	overflow-y: auto;
 }
 
 .messages { /* list of messages */
@@ -45,6 +46,7 @@ ul { /* get rid of margins for upcoming lists */
 	flex-direction: column;
 	padding-left: 20px;
 	padding-right: 20px;
+	overflow-y: scroll;
 }
 
 /* chat bubble reference: https://projects.verou.me/bubbly/ */
@@ -136,6 +138,7 @@ ul { /* get rid of margins for upcoming lists */
 .chat-box {
 	display: inline-flex;
 	flex-direction: row;
+	padding-left: 0px;
 }
 
 .edit-text {

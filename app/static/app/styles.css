@@ -145,7 +145,7 @@ ul { /* get rid of margins for upcoming lists */
 	font-size: 135%;
 }
 
-.edit-text:disabled {
+.edit-text:disabled { /* shade the text box if it is disabled */
 	box-shadow: 8px 8px 10px rgba(0,0,0,0.25) inset;
 }
 

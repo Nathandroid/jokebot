@@ -1,13 +1,17 @@
+{% extends "app/base.html" %} <!-- template inheritance: https://docs.djangoproject.com/en/3.1/ref/templates/language/ -->
+
 {% load static %}
 
+{% block title %} Jokebot App {% endblock %}
+
+{% block head %}
 <!-- get css from static directory -->
 <link rel="stylesheet" type="text/css" href="{% static 'app/styles.css' %}">
 
-<!-- font awesome icon access -->
-<script src="https://kit.fontawesome.com/237b03f221.js" crossorigin="anonymous"></script>
+{% endblock %}
 
+{% block content %}
 <h1>Jokebot App</h1>
-
 <body>
 	<div class="container chat-container">
 		<div class="container message-container">
@@ -30,4 +34,4 @@
 		</div>
 	</div>
 </body>
-
+{% endblock %}

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> {% block title %} {% endblock %} </title>
+
+	<!-- font awesome icon access -->
+	<script src="https://kit.fontawesome.com/237b03f221.js" crossorigin="anonymous"></script>
+
+    {% block head %} {% endblock %}
+</head>
+
+<body>
+    <div id="content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

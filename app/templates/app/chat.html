@@ -5,8 +5,11 @@
 {% block title %} Jokebot App {% endblock %}
 
 {% block head %}
-<!-- get css from static directory -->
+<!-- get CSS from static directory -->
 <link rel="stylesheet" type="text/css" href="{% static 'app/styles.css' %}">
+
+<!-- get JS from static directory -->
+<script src="{% static 'app/script.js' %}"> </script>
 {% endblock %}
 
 {% block header %} <h1>Jokebot</h1> {% endblock %}

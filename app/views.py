@@ -5,5 +5,6 @@ from .models import joke
 def chat(request):
 
 	context = {}
-    #render given the chat template
+
+    #render specified chat template with given context
 	return render(request, 'app/chat.html', context)

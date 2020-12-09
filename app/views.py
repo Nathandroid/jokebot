@@ -3,6 +3,7 @@ from django.core import serializers
 import json
 
 from .models import joke
+from .forms import JokeForm
 
 context = {}
 
@@ -11,14 +12,14 @@ def chat(request):
 	context['jokes'] = jokes
 	return render(request, 'app/chat.html', context)
 
-#CRUD operations in Django: https://www.javatpoint.com/django-crud-application
+#CRUD operations example in Django: https://www.javatpoint.com/django-crud-application
 def new(request): #CREATE
 	if request.method == 'POST':
 		form = JokeForm(request.POST)
 	if form.is_valid():
 		try:
 			form.save()
-			return redirect('/chat')
+			return redirect('/')
 		except:
 			pass
 
@@ -31,7 +32,6 @@ def get(request, id = 0): #READ
 		context['requested'] = requested
 	
 	#no id specified
-	#requested = serializer.serialize(joke.objects.all())
 	context['jokes'] = joke.objects.all().values()
 
 	#uncomment to see joke list being sent in console

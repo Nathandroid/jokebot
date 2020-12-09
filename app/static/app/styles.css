@@ -161,3 +161,7 @@ i {
 i:hover {
 	opacity: 1;
 }
+
+.submit {
+	display: none;
+}

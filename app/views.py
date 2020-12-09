@@ -4,20 +4,16 @@ import json
 
 from .models import joke
 
-#serializers: https://stackoverflow.com/questions/10358803/is-it-possible-to-use-javascript-to-get-data-from-django-models-db/10360147
-serializer = serializers.get_serializer("json")()
-jokes = serializer.serialize(joke.objects.all())
-
-context = {
-	'jokes': jokes
-}
+context = {}
 
 def chat(request):
+	jokes = joke.objects.all().values()
+	context['jokes'] = jokes
 	return render(request, 'app/chat.html', context)
 
 #CRUD operations in Django: https://www.javatpoint.com/django-crud-application
 def new(request): #CREATE
-	if request.method === 'POST':
+	if request.method == 'POST':
 		form = JokeForm(request.POST)
 	if form.is_valid():
 		try:
@@ -26,21 +22,31 @@ def new(request): #CREATE
 		except:
 			pass
 
-	else:
-		form = JokeForm()
+	return render(request, 'app/chat.html', context) #passing an empty context for consistency
 
-	return render(request, 'app/chat.html', {'form':form}) #I don't think I want to pass the form as context here. Maybe a new joke list?
+#get specific joke or all jokes
+def get(request, id = 0): #READ
+	if (id > 0): #ID specified
+		requested = joke.objects.get(id = id) #get specific joke
+		context['requested'] = requested
+	
+	#no id specified
+	#requested = serializer.serialize(joke.objects.all())
+	context['jokes'] = joke.objects.all().values()
 
-#get specific joke
-def get(request, id): #READ
-	if request.method == "READ":
-		context['joke'] = joke.objects.get(id=id)
-	else:
-		context['error'] = true
+	#uncomment to see joke list being sent in console
+	#parsed = json.loads(context['jokes'])
+	#print(json.dumps(parsed, indent=4, sort_keys=True))
+
+	return render(request, 'app/chat.html', context)
 
 #delete any joke the user doesn't like
 def destroy(request, id): #DELETE
-	if request.method == "DELETE":
-		jokeToDelete = joke.objects.get(id=id)
-	else:
-		context['error'] = true
+	toDelete = joke.objects.get(id = id)
+	toDelete.delete()
+
+	#get the new list of jokes (I'm not sure if this is necessary)
+	jokes = serializer.serialize(joke.objects.all())
+	context['jokes'] = jokes
+
+	return render(request, 'app/chat.html', context)

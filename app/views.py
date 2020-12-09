@@ -45,8 +45,6 @@ def destroy(request, id): #DELETE
 	toDelete = joke.objects.get(id = id)
 	toDelete.delete()
 
-	#get the new list of jokes (I'm not sure if this is necessary)
-	jokes = serializer.serialize(joke.objects.all())
-	context['jokes'] = jokes
+	context['jokes'] = joke.objects.all().values()
 
 	return render(request, 'app/chat.html', context)
